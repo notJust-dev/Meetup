@@ -25,7 +25,7 @@ export default function EventListItem({ event }) {
         <Text className="mr-auto text-gray-700">16 going</Text>
 
         <Feather name="share" size={20} color="gray" />
-        <Feather name="bookmark" size={24} color="gray" />
+        <Feather name="bookmark" size={20} color="gray" />
       </View>
     </View>
   );
