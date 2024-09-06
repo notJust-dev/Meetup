@@ -10,8 +10,7 @@ export default function EventListItem({ event }) {
         <View className="flex-row">
           <View className="flex-1 gap-2">
             <Text className="text-lg font-semibold uppercase text-amber-800">
-              {dayjs(event.datetime).format('ddd, D MMM')} ·{' '}
-              {dayjs(event.datetime).format('h:mm A')}
+              {dayjs(event.date).format('ddd, D MMM')} · {dayjs(event.date).format('h:mm A')}
             </Text>
             <Text className="text-xl font-bold" numberOfLines={2}>
               {event.title}
@@ -21,7 +20,7 @@ export default function EventListItem({ event }) {
           </View>
 
           {/* Event image */}
-          <Image source={{ uri: event.image }} className="aspect-video w-2/5 rounded-xl" />
+          <Image source={{ uri: event.image_uri }} className="aspect-video w-2/5 rounded-xl" />
         </View>
 
         {/* Footer */}

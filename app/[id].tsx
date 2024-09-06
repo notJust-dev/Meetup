@@ -1,13 +1,30 @@
 import dayjs from 'dayjs';
 import { useLocalSearchParams, Stack } from 'expo-router';
-import { Text, View, Image, Pressable } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Text, View, Image, Pressable, ActivityIndicator } from 'react-native';
 
-import events from '~/assets/events.json';
+import { supabase } from '~/utils/supabase';
 
 export default function EventPage() {
   const { id } = useLocalSearchParams();
 
-  const event = events.find((e) => e.id === id);
+  const [event, setEvent] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    fetchEvent();
+  }, [id]);
+
+  const fetchEvent = async () => {
+    setLoading(true);
+    const { data, error } = await supabase.from('events').select('*').eq('id', id).single();
+    setEvent(data);
+    setLoading(false);
+  };
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
 
   if (!event) {
     return <Text>Event not found</Text>;
@@ -19,7 +36,7 @@ export default function EventPage() {
         options={{ title: 'Event', headerBackTitleVisible: false, headerTintColor: 'black' }}
       />
 
-      <Image source={{ uri: event.image }} className="aspect-video w-full rounded-xl" />
+      <Image source={{ uri: event.image_uri }} className="aspect-video w-full rounded-xl" />
 
       <Text className="text-3xl font-bold" numberOfLines={2}>
         {event.title}
