@@ -20,7 +20,15 @@
       [
         "expo-location",
         {
-          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location.",
+          "locationWhenInUsePermission": "Show current location on map."
+        }
+      ],
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsDownloadToken": "sk.eyJ1Ijoibm90anVzdGRldiIsImEiOiJjbTEweWp3c3cwYTFxMmtyNWhsYzE0N3prIn0.l-9ny9Pds-U3rL42zsv0IQ",
+          "RNMapboxMapsVersion": "11.0.0"
         }
       ]
     ],
