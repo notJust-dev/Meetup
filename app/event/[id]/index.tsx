@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 import { Text, View, Image, Pressable, ActivityIndicator } from 'react-native';
 
 import { useAuth } from '~/contexts/AuthProvider';
+import { Attendance, Event } from '~/types/db';
 import { supabase } from '~/utils/supabase';
 
 export default function EventPage() {
   const { id } = useLocalSearchParams();
 
-  const [event, setEvent] = useState(null);
-  const [attendace, setAttendance] = useState(null);
+  const [event, setEvent] = useState<Event | null>(null);
+  const [attendace, setAttendance] = useState<Attendance | null>(null);
   const [loading, setLoading] = useState(false);
 
   const { user } = useAuth();
