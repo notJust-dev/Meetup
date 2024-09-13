@@ -3,6 +3,7 @@ import { useLocalSearchParams, Stack, Link } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Text, View, Image, Pressable, ActivityIndicator } from 'react-native';
 
+import SupaImage from '~/components/SupaImage';
 import { useAuth } from '~/contexts/AuthProvider';
 import { Attendance, Event } from '~/types/db';
 import { supabase } from '~/utils/supabase';
@@ -60,7 +61,7 @@ export default function EventPage() {
         options={{ title: 'Event', headerBackTitleVisible: false, headerTintColor: 'black' }}
       />
 
-      <Image source={{ uri: event.image_uri }} className="aspect-video w-full rounded-xl" />
+      <SupaImage path={event.image_uri} className="aspect-video w-full rounded-xl" />
 
       <Text className="text-3xl font-bold" numberOfLines={2}>
         {event.title}
