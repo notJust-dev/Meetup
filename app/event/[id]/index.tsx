@@ -70,6 +70,8 @@ export default function EventPage() {
         {dayjs(event.date).format('ddd, D MMM')} · {dayjs(event.date).format('h:mm A')}
       </Text>
 
+      <Text className="text-lg font-bold">{event.location}</Text>
+
       <Text className="text-lg" numberOfLines={2}>
         {event.description}
       </Text>

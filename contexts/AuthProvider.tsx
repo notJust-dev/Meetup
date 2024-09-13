@@ -24,7 +24,7 @@ export default function AuthProvider({ children }) {
   if (!isReady) {
     return <ActivityIndicator />;
   }
-
+  
   return (
     <AuthContext.Provider
       value={{ session, user: session?.user, isAuthenticated: !!session?.user }}>
