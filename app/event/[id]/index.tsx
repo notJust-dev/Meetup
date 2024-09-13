@@ -65,7 +65,7 @@ export default function EventPage() {
         {event.title}
       </Text>
       <Text className="text-lg font-semibold uppercase text-amber-800">
-        {dayjs(event.datetime).format('ddd, D MMM')} · {dayjs(event.datetime).format('h:mm A')}
+        {dayjs(event.date).format('ddd, D MMM')} · {dayjs(event.date).format('h:mm A')}
       </Text>
 
       <Text className="text-lg" numberOfLines={2}>
